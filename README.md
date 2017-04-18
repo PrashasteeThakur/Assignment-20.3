@@ -37,9 +37,13 @@ The implementation of WritableComparable is similar to Writable but with an addi
 
 public interface WritableComparable extends Writable, Comparable
 {
+
     void readFields(DataInput in);
+    
     void write(DataOutput out);
+    
     int compareTo(WritableComparable o)
+    
 }
 
 With the use of these Writable and WritableComparables in Hadoop, we can make our serialized custom type with less difficulty. This gives the ease for developers to make their custom types based on their requirement.
