@@ -24,6 +24,7 @@ void readFields(DataInput in);
 void write(DataOutput out);
  
 }
+
 Here, readFields, reads the data from network and write will write the data into local disk. Both are necessary for transferring data through clusters. DataInput and DataOutput classes (part of java.io) contain methods to serialize the most basic types of data.
 
 WritableComparable
@@ -33,6 +34,7 @@ If we have made our custom type Writable rather than WritableComparable our data
 
 If our custom type is a key then we should have WritableComparable or else the data won’t be sorted.
 The implementation of WritableComparable is similar to Writable but with an additional ‘CompareTo’ method inside it.
+
 public interface WritableComparable extends Writable, Comparable
 {
     void readFields(DataInput in);
@@ -41,4 +43,5 @@ public interface WritableComparable extends Writable, Comparable
  
     int compareTo(WritableComparable o)
 }
+
 With the use of these Writable and WritableComparables in Hadoop, we can make our serialized custom type with less difficulty. This gives the ease for developers to make their custom types based on their requirement.
