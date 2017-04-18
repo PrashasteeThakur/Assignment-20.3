@@ -38,9 +38,7 @@ The implementation of WritableComparable is similar to Writable but with an addi
 public interface WritableComparable extends Writable, Comparable
 {
     void readFields(DataInput in);
- 
     void write(DataOutput out);
- 
     int compareTo(WritableComparable o)
 }
 
